@@ -19,4 +19,24 @@ class Spell:
         self.source = ''
         self.sphere = ''
         self.caster = ''
-
+    
+    def print_spell(self):
+        print('ID: ' + self.id)
+        print('NAME: ' + self.name)
+        print('SCHOOL: ' + self.school)
+        print('V: ' + str(self.verbal_comp))
+        print('S: ' + str(self.somatic_comp))
+        print('M: ' + str(self.material_comp))
+        print('MATERIALS NEEDED: ' + self.materials)
+        print('RANGE: ' + self.range)
+        print('AOE: ' + self.aoe)
+        print('CAST TIME: ' + self.casting_time)
+        print('DURATION: ' + self.duration)
+        print('SAVE: ' + self.save)
+        print('DAMAGE: ' + self.damage)
+        print('DESC: ' + self.description)
+        print('LEVEL: ' + str(self.level))
+        print('RESIDUE: ' + self.residue)
+        print('SOURCE: ' + self.source)
+        print('SPHERE: ' + self.sphere)
+        print('CASTER: ' + self.caster)

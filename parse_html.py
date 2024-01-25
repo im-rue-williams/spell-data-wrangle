@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 from spell import Spell
+from utility import *
 
-f = """<!DOCTYPE html>
+data = """<!DOCTYPE html>
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
@@ -52103,8 +52104,7 @@ The material component is a jade circlet worth no less than 5,000 gp, which shat
 </html>
 """
 
-soup = BeautifulSoup(f, 'html.parser')
-spells = soup.find_all('div', attrs={'data-id' : True})
+spells = grab_spell_list(data)
 
 # print(spells[0]['data-id'])
 
@@ -52123,28 +52123,29 @@ spell_1.save = spells[0].find('dd', {'class' : 'save'}).text
 spell_1.damage = spells[0].find('dd', {'class' : 'damage'}).text
 spell_1.description = spells[0].find('div', {'class' : 'description-content'}).text
 spell_1.residue = spells[0].find('dl', {'class' : 'label'}).text.split()[1]
-spell_1.source = spells[0].find_all('dl', {'class' : 'bot'})[1].text[7:]
+spell_1.source = spells[0].find_all('dl', {'class' : 'bot'})[1].text[7:].strip() 
 spell_1.somatic_comp = bool(spells[0].find('div', {'class' : 'somatic'}))
 spell_1.verbal_comp = bool(spells[0].find('div', {'class' : 'verbal'}))
 spell_1.material_comp = bool(spells[0].find('div', {'class' : 'material'}))
 
+spell_1.print_spell()
 
-print(spell_1.id)
-print(spell_1.name)
-print(spell_1.school)
-print(spell_1.verbal_comp)
-print(spell_1.somatic_comp)
-print(spell_1.material_comp)
-print(spell_1.materials)
-print(spell_1.range)
-print(spell_1.aoe)
-print(spell_1.casting_time)
-print(spell_1.duration)
-print(spell_1.save)
-print(spell_1.damage)
-print(spell_1.description)
-print(spell_1.level)
-print(spell_1.residue)
-print(spell_1.source)
-print(spell_1.caster)
+# print(spell_1.id)
+# print(spell_1.name)
+# print(spell_1.school)
+# print(spell_1.verbal_comp)
+# print(spell_1.somatic_comp)
+# print(spell_1.material_comp)
+# print(spell_1.materials)
+# print(spell_1.range)
+# print(spell_1.aoe)
+# print(spell_1.casting_time)
+# print(spell_1.duration)
+# print(spell_1.save)
+# print(spell_1.damage)
+# print(spell_1.description)
+# print(spell_1.level)
+# print(spell_1.residue)
+# print(spell_1.source)
+# print(spell_1.caster)
 
