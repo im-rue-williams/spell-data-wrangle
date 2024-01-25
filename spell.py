@@ -1,6 +1,7 @@
 class Spell:
     def __init__(self):
         self.id = 0
+        self.level = 0
         self.name = ''
         self.school = ''
         self.verbal_comp = True
@@ -14,7 +15,6 @@ class Spell:
         self.save =  ''
         self.damage =  ''
         self.description =  ''
-        self.level = 0
         self.residue = ''
         self.source = ''
         self.sphere = ''
