@@ -1,5 +1,5 @@
 import urllib.request
-from bs4 import BeautifulSoup
+from utility import *
 
 spheres = [
     'Animal', 
@@ -29,11 +29,18 @@ spheres = [
     'Wards',
     'Weather'
 ]
+sphere_ids = {}
+url = 'https://regalgoblins.com/spells.php?sphere='
 
-url = 'https://regalgoblins.com/spells.php?sphere=' + spheres[1]
-
-with urllib.request.urlopen(url) as response:
+with urllib.request.urlopen(url + spheres[1]) as response:
     html = response.read()
 
+sphere_ids[spheres[1]] = []
+spell_list = parse_spell_list(html)
+spellbook = [] 
+for spell_div in spell_list:
+    spellbook.append(create_spell(spell_div))
+for spell in spellbook:
+    sphere_ids[spheres[1]].append(spell.id)
 
-print(html)
+print(sphere_ids)

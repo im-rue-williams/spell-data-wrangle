@@ -1,7 +1,7 @@
 class Spell:
     def __init__(self):
         self.id = 0
-        self.level = 0
+        self.level = ''
         self.name = ''
         self.school = ''
         self.verbal_comp = True
@@ -35,7 +35,7 @@ class Spell:
         print('SAVE: ' + self.save)
         print('DAMAGE: ' + self.damage)
         print('DESC: ' + self.description)
-        print('LEVEL: ' + str(self.level))
+        print('LEVEL: ' + self.level)       
         print('RESIDUE: ' + self.residue)
         print('SOURCE: ' + self.source)
         print('SPHERE: ' + self.sphere)

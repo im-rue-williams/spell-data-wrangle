@@ -1,5 +1,3 @@
-from bs4 import BeautifulSoup
-from spell import Spell
 from utility import *
 
 data = """<!DOCTYPE html>
@@ -52104,48 +52102,9 @@ The material component is a jade circlet worth no less than 5,000 gp, which shat
 </html>
 """
 
-spells = grab_spell_list(data)
+spell_html = grab_spell_list(data)
+spell_list = []
+for spell_div in spell_html:
+	spell_list.append(create_spell(spell_div))
 
-# print(spells[0]['data-id'])
-
-spell_1 = Spell()
-spell_1.id = spells[0]['data-id']
-spell_1.school = spells[0]['data-school']
-spell_1.caster = spells[0]['data-caster']
-spell_1.level = int(spells[0].find('button', {'class' : 'level'}).text)
-spell_1.name = spells[0].find('div', {'class' : 'name'}).text
-spell_1.materials = spells[0].find('dd', {'class' : 'materials'}).text
-spell_1.range = spells[0].find('dd', {'class' : 'range'}).text
-spell_1.aoe = spells[0].find('dd', {'class' : 'aoe'}).text
-spell_1.casting_time = spells[0].find('dd', {'class' : 'castingTime'}).text
-spell_1.duration = spells[0].find('dd', {'class' : 'duration'}).text
-spell_1.save = spells[0].find('dd', {'class' : 'save'}).text
-spell_1.damage = spells[0].find('dd', {'class' : 'damage'}).text
-spell_1.description = spells[0].find('div', {'class' : 'description-content'}).text
-spell_1.residue = spells[0].find('dl', {'class' : 'label'}).text.split()[1]
-spell_1.source = spells[0].find_all('dl', {'class' : 'bot'})[1].text[7:].strip() 
-spell_1.somatic_comp = bool(spells[0].find('div', {'class' : 'somatic'}))
-spell_1.verbal_comp = bool(spells[0].find('div', {'class' : 'verbal'}))
-spell_1.material_comp = bool(spells[0].find('div', {'class' : 'material'}))
-
-spell_1.print_spell()
-
-# print(spell_1.id)
-# print(spell_1.name)
-# print(spell_1.school)
-# print(spell_1.verbal_comp)
-# print(spell_1.somatic_comp)
-# print(spell_1.material_comp)
-# print(spell_1.materials)
-# print(spell_1.range)
-# print(spell_1.aoe)
-# print(spell_1.casting_time)
-# print(spell_1.duration)
-# print(spell_1.save)
-# print(spell_1.damage)
-# print(spell_1.description)
-# print(spell_1.level)
-# print(spell_1.residue)
-# print(spell_1.source)
-# print(spell_1.caster)
-
+print(spell_list[3].print_spell())
