@@ -18,8 +18,7 @@ class Spell:
         self.residue = ''
         self.source = ''
         self.sphere = ''
-        self.caster = ''
-    
+        self.caster = ''   
     def print_spell(self):
         print('ID: ' + self.id)
         print('NAME: ' + self.name)

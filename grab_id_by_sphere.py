@@ -32,4 +32,13 @@ sphere_ids ={}
 for category in spheres:
    sphere_ids[category] = get_spell_ids(category) 
 
+casters = [
+   'Wizard',
+   "Priest"
+]
+sphere_ids ={}
+for category in spheres:
+   sphere_ids[category] = get_spell_ids(category) 
+
+
 print(sphere_ids)
