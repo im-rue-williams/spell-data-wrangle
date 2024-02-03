@@ -6,9 +6,12 @@ def parse_spell_html(f):
     soup = BeautifulSoup(f, 'html.parser')
     spells = soup.find_all('div', attrs={'data-id' : True})
     return spells
+
 def get_spell_html(category):
-    url = 'https://regalgoblins.com/spells.php?sphere='
-    with urllib.request.urlopen(url + category) as response:
+    # sphere_url = 'https://regalgoblins.com/spells.php?sphere='
+    caster_url = 'https://regalgoblins.com/spells.php?caster='
+    # school_url = 'https://regalgoblins.com/spells.php?school='
+    with urllib.request.urlopen(caster_url + category) as response:
         return parse_spell_html(response.read())
 
 def create_spell(spell_div):

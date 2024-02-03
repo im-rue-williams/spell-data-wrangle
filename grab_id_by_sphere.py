@@ -1,6 +1,7 @@
 from utility import *
 
-spheres = [
+filter_catergories = {
+   'sphere=': [
     'Animal', 
     'Astral', 
     'Chaos', 
@@ -27,18 +28,36 @@ spheres = [
     'War',
     'Wards',
     'Weather'
-]
-sphere_ids ={}
-for category in spheres:
-   sphere_ids[category] = get_spell_ids(category) 
+   ],
+   'caster=': [
+      'Wizard',
+      "Priest"
+   ],
+   'school=': [
+      'Abjuration',
+      'Alteration',
+      'Conjuration',
+      'Divination',
+      'Enchantment',
+      'Evocation',
+      'Illusion',
+      'Necromancy'
+   ]
+}
+filter_names = list(filter_catergories.keys())
 
-casters = [
-   'Wizard',
-   "Priest"
-]
-sphere_ids ={}
-for category in spheres:
-   sphere_ids[category] = get_spell_ids(category) 
+# sphere_ids ={}
 
+# for category in filter_catergories[filter_names[0]]:
+#          sphere_ids[category] = get_spell_ids(category) 
+# print(sphere_ids) 
 
-print(sphere_ids)
+caster_ids ={}
+for category in filter_catergories[filter_names[1]]:
+         caster_ids[category] = get_spell_ids(category) 
+print(caster_ids) 
+
+# school_ids ={}
+# for category in filter_catergories[filter_names[2]]:
+#          school_ids[category] = get_spell_ids(category) 
+# print(school_ids) 
