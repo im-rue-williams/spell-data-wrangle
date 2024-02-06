@@ -9,9 +9,9 @@ def parse_spell_html(f):
 
 def get_spell_html(category):
     # sphere_url = 'https://regalgoblins.com/spells.php?sphere='
-    caster_url = 'https://regalgoblins.com/spells.php?caster='
-    # school_url = 'https://regalgoblins.com/spells.php?school='
-    with urllib.request.urlopen(caster_url + category) as response:
+    # caster_url = 'https://regalgoblins.com/spells.php?caster='
+    school_url = 'https://regalgoblins.com/spells.php?school='
+    with urllib.request.urlopen(school_url + category) as response:
         return parse_spell_html(response.read())
 
 def create_spell(spell_div):

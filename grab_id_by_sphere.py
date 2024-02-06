@@ -52,12 +52,12 @@ filter_names = list(filter_catergories.keys())
 #          sphere_ids[category] = get_spell_ids(category) 
 # print(sphere_ids) 
 
-caster_ids ={}
-for category in filter_catergories[filter_names[1]]:
-         caster_ids[category] = get_spell_ids(category) 
-print(caster_ids) 
+# caster_ids ={}
+# for category in filter_catergories[filter_names[1]]:
+#          caster_ids[category] = get_spell_ids(category) 
+# print(caster_ids) 
 
-# school_ids ={}
-# for category in filter_catergories[filter_names[2]]:
-#          school_ids[category] = get_spell_ids(category) 
-# print(school_ids) 
+school_ids ={}
+for category in filter_catergories[filter_names[2]]:
+         school_ids[category] = get_spell_ids(category) 
+print(school_ids) 
